@@ -110,6 +110,9 @@ ENV/
 env.bak/
 venv.bak/
 
+# Python interpreter in VSC
+.vscode/settings.json
+
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -127,3 +130,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Documentations not related to program
+documents/
