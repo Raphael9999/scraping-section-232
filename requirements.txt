@@ -8,3 +8,4 @@ beautifulsoup4
 notebook
 pylint
 pep8
+pyyaml
