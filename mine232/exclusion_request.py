@@ -2,6 +2,7 @@
 from bs4 import BeautifulSoup
 import requests
 import re
+from .er_tag import ERTag
 
 def _filter_tags(one_tag):
     """Filter the tags from the soup to return the one we need
@@ -69,8 +70,10 @@ class ExclusionRequest:
     :ivar url: url to the detail of the Exclusion ID
     :ivar html: html answer of the request to the website
     :ivar soup: Soup of the exclusion request
-    :ivar pretty: prettified soup of the exclusion request
-    :ivar error: website returned an error
+    :ivar title: Title of the exclusion request
+    :ivar tags: List of tags of the exclusion request
+    :ivar data: Dictionary with the data title and value extracted from the list of tags
+    :ivar error: Website returned an error
     """
 
     def _get_url(self):
@@ -95,18 +98,28 @@ class ExclusionRequest:
         self.html = r2w.text 
         # Soup for the exclusion request
         self.soup = BeautifulSoup(self.html, features="html.parser")
-        # prettify html of the exclusion request
-        self.pretty = self.soup.prettify()
         # website returned error, 
         # could raise ValueError('Website: An error occurred while processing your request')
         ttl = self.soup.title.string
         self.error = ( ttl == 'Error' ) or ( ttl != ('Exclusion Request ' + str(self.id)) )
+
+    def pretty(self):
+        """Return prettified soup made from the html of the exclusion request
+        :return: soup.prettify()"""
+        return self.soup.prettify()
 
     def _get_tags(self):
         """Parse the answer from the website"""
         self.title = self.soup.title.string
         # use function to filter the find_all
         self.tags = self.soup.find_all(_filter_tags)
+
+    def _get_data(self):
+        """Built a dictionary with the data title and value extracted from the list of tags"""
+        self.data = {}
+        for _one_tag in self.tags:
+            _processed_tag = ERTag(_one_tag)
+            self.data[_processed_tag.title] = _processed_tag.value
 
     def __init__(self, id):
         if str(id ).isnumeric():
@@ -120,4 +133,5 @@ class ExclusionRequest:
         self._get_url()
         self._get_request()
         self._get_tags()
+        self._get_data()
     

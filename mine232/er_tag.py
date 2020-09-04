@@ -12,6 +12,10 @@ class ERTag:
     :param tag: Tag to analyse
     :ivar tag: Tag passed to the instance creation, numerical
     :ivar attributes: Dictionary with tag attributes and values, missing atttributes/empty values are omitted
+    :ivar clean: Dictionary with clean attributes used by the class
+    :ivar name: name of the tag
+    :ivar title: caption of the tag, text description of the field on the website
+    :ivar value: value of the corresponding field on the website
     """
 
     def _get_attributes(self):
@@ -125,7 +129,11 @@ class ERTag:
 
     def _get_value(self):
         if   self.title == 'Request ID':
-            self.value = self.clean['tag.text'][18:]
+            if self.clean['tag.text'] == 'Error':
+                self.value = self.clean['tag.text']
+            else: 
+                # [18:] will select the ID of the Excemption Request
+                self.value = self.clean['tag.text'][18:]
         elif self.tag.name == 'textarea':
             # for textarea, there is no value attribute, the comment is found with text
             self.value = self.clean['tag.text']
