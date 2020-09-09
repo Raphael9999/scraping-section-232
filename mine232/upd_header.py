@@ -2,6 +2,7 @@ import yaml
 from .exclusion_request import ExclusionRequest
 
 class UpdateHeader():
+    """Update the header.yaml file that is used by the er_list module"""
     def __init__(self):
         my_request = ExclusionRequest(25663) 
         self.header = my_request.captions()

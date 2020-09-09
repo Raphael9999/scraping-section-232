@@ -15,7 +15,7 @@ def _get_prodclass(ltag):
     return lrex
 
 class UpdateProdClass:
-
+    """Update the prod_class.yaml file that is used by the er_tag module"""
     def __init__(self):
         #Base URL of the U.S. Department of Commerce, Section 232 website
         _url = 'https://232app.azurewebsites.net/Forms/ExclusionRequestItem/22561'    

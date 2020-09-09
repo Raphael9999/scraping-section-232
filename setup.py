@@ -1,7 +1,7 @@
 import setuptools
 
 setuptools.setup( name='mine232', 
-                  version='0.0.2',
+                  version='0.0.3',
                   description='Package for data mining of Section 232',
                   author='Raphael Louvrier',
                   author_email='rlouvrier@outlook.com',

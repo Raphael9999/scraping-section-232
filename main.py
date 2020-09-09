@@ -1,8 +1,6 @@
 import mine232 as mn
 
-# mn.UpdateProdClass()
-# mn.UpdateHeader()
-
+# individual request processing
 # my_request = mn.ExclusionRequest(25663) #25635)
 # print(f"ID: {my_request.id}")
 # print(f"url: {my_request.url}")
@@ -14,9 +12,16 @@ import mine232 as mn
 # print(f"\nvalues: \n{my_request.values()}")
 # print(f"\ncaptions: \n{my_request.captions()}")
 
-my_erl = mn.ERList([25635, 25663, 9999999])
-print(f"\nIDs: \n{my_erl.er_ids}")
+# update yaml
+# mn.UpdateProdClass()
+# mn.UpdateHeader()
+
+# process lists of exclusion requests
+# my_erl = mn.ERList([25663, 25635, 9999999, 25635])
+my_erl = mn.ERList(from_id=25000, to_id=25010)
+# print(f"\nIDs: \n{my_erl.er_ids}")
 print(f"\nerrors: \n{my_erl.errors}")
 print(f"\nextracted: \n{my_erl.extracted}")
-# print(f"\ndata: \n{my_erl.data}")
-print(f"\nDataFrame: \n{my_erl.df}")
+print(f"\nfrom-to: \n{my_erl.fromto}")
+print(f"\nDataFrame: \n{my_erl.df.shape}")
+my_erl.df.to_csv(f'result\extract_232_{my_erl.fromto}.csv', index = False) 
