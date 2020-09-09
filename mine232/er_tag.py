@@ -4,7 +4,7 @@ import re
 import yaml
 
 with open(r'mine232\prod_class.yaml') as file:
-    prod_class_dict = yaml.load(file, Loader=yaml.FullLoader)
+    _prod_class_dict = yaml.load(file, Loader=yaml.FullLoader)
 
 class ERTag:
     """Exclusion Request tag class to analyse an individual tag of the website reply
@@ -101,7 +101,7 @@ class ERTag:
 
         if self.name[:22] == 'ProductClassification[' and self.name[-7:] == '].Value':
             #dictionary for product classification provide the title for that value
-            self.title = prod_class_dict[self.name]         
+            self.title = _prod_class_dict[self.name]         
         
         # Force the title for the following names as they are exceptions to the global pattern
         name_title_dict = {'Product'            : 'Product',

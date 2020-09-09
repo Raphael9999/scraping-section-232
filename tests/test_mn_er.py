@@ -2,7 +2,7 @@
 import sys, os
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../')
-
+import yaml
 from mine232 import ExclusionRequest
 
 # create exclusion request 
@@ -11,9 +11,9 @@ def test_id():
     my_er = ExclusionRequest(25663)
     assert my_er.id == 25663
     assert my_er.url == 'https://232app.azurewebsites.net//Forms/ExclusionRequestItem/25663'
-    assert str(my_er.html)[:193] == '''<!DOCTYPE html>\r\n<html lang="en">\r\n<head>\r\n    <meta charset="utf-8" />\r\n    <meta name="viewport" content="width=device-width, initial-scale=1.0" />\r\n    <title>Exclusion Request 25663</title>'''
-    assert str(my_er.soup)[:136] == '''<!DOCTYPE html>\n\n<html lang="en">\n<head>\n<meta charset="utf-8"/>\n<meta content="width=device-width, initial-scale=1.0" name="viewport"/>'''
-    assert str(my_er.pretty())[:188] == '''<!DOCTYPE html>\n<html lang="en">\n <head>\n  <meta charset="utf-8"/>\n  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>\n  <title>\n   Exclusion Request 25663\n  </title>'''
+    assert my_er.html[:33] == '''<!DOCTYPE html>\r\n<html lang="en">'''
+    assert str(my_er.soup)[:33] == '''<!DOCTYPE html>\n\n<html lang="en">'''
+    assert my_er.pretty()[:32] == '''<!DOCTYPE html>\n<html lang="en">'''
     assert not(my_er.error)
 
 def test_text_id():
@@ -61,3 +61,18 @@ def test_missing_id():
     else:
         # fail, the id was processed
         assert False
+
+def test_data():
+    """Test data extracted for an exclusion request"""
+    _request_id = 25635
+    my_er = ExclusionRequest(_request_id)
+    assert my_er.id == _request_id
+
+    # load expected result
+    with open(r'tests\data' + str(_request_id)+'.yaml', encoding='utf-8') as file: 
+        result = yaml.load(file, Loader=yaml.FullLoader)
+
+    assert my_er.data == result
+
+    assert my_er.captions() == list(result.keys())
+    assert my_er.values() == list(result.values())

@@ -59,7 +59,7 @@ def _filter_tags(one_tag):
     else:
         _b_a = False 
 
-    # Input and textarea with valid name, not hidden, not a *[i].Key, plus title, p and attachments
+    # Input and textarea with valid name, not hidden, not a *[i].Key, plus: title, p and attachments
     return ( ( _b_i or _b_t ) and _b_n and _b_k and _b_h ) or _b_l or _b_p or _b_a
 
 class ExclusionRequest:
@@ -120,6 +120,14 @@ class ExclusionRequest:
         for _one_tag in self.tags:
             _processed_tag = ERTag(_one_tag)
             self.data[_processed_tag.title] = _processed_tag.value
+
+    def values(self):
+        """List of values extracted from the website"""
+        return list(self.data.values())
+
+    def captions(self):
+        """List of caption, header, title corresponding to the values extracted from the website"""
+        return list(self.data.keys())
 
     def __init__(self, id):
         if str(id ).isnumeric():

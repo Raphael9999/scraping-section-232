@@ -1,0 +1,242 @@
+- Request ID
+- Submission Date
+- Public Status
+- Product
+- Metal Class
+- HTSUS Code
+- Previously Granted ER
+- Organization Legal Name
+- Requesting Organization Street Address
+- Requesting Organization City
+- Requesting Organization State
+- Requesting Organization Zipcode
+- requesting organization headquarters country
+- Requesting Organization POC Name
+- Requesting Organization Phone Number
+- Requesting Organization Email Address
+- Requesting Organization Website Address
+- Parent Company Legal Name
+- Parent Company Street Address
+- Parent Company City
+- Parent Company Country
+- Parent Company Headquarters State
+- Parent Company Zipcode
+- Parent Company Website Address
+- Importer Legal Name
+- Importer Street Address
+- Importer City
+- Importer State
+- Importer Zipcode
+- Importer Headquarters Country
+- Importer POC Name
+- Importer Phone Number
+- Importer Email Address
+- Importer Website Address
+- Authorized Representative POC Name
+- Authorized Representative POC Organization
+- Authorized Representative Country Location
+- Authorized Representative Phone Number
+- Authorized Representative Email Address
+- Authorized Representative Web Site Address
+- Authorized Representative Other Information
+- Ownership Activity Ownership
+- Ownership Activity
+- Ownership Organization Name
+- Ownership Headquarters Country
+- Ownership Comments
+- Activity
+- Comments
+- Total Requested Annual Exclusion Quantity
+- Total Requested Average Annual Consumption
+- Exclusion Explanation
+- Exclusion Explanation Comments
+- Percentage Not Available
+- Delivery Estimate
+- Manufacture Estimate
+- Shipment Days Estimate
+- Shipment Quantity Estimate
+- Non US Producer Behalf Of
+- Non US Producer Name
+- Non US Producer Headquarters Country
+- Non US Producer Comments
+- Product Description
+- Product Description Comments
+- Slab
+- Blooms
+- Billets
+- Ingots
+- Flat
+- Long
+- Beams
+- Semi-Finished
+- Pipe
+- Tube
+- Stainless
+- Wire
+- Hot Rolled
+- Cold Rolled
+- Annealed
+- Plated
+- Electro-Plated
+- Galvanized
+- Electro-Galvanized
+- Zinc Plated
+- Aluminum Plated
+- Lead Plated
+- Tin Plated
+- Painted
+- Varnished
+- Plasticized
+- Pickled
+- Fittings
+- Product Classification Other
+- Product Classification Other 2
+- Product Classification Other 3
+- Product Classification Comments
+- Minimal Percentage of Aluminum
+- Minimal Percentage of Antimony
+- Minimal Percentage of Bismuth
+- Minimal Percentage of Boron
+- Minimal Percentage of Carbon
+- Maximum Percentage of Aluminum
+- Maximum Percentage of Antimony
+- Maximum Percentage of Bismuth
+- Maximum Percentage of Boron
+- Maximum Percentage of Carbon
+- Minimal Percentage of Chromium
+- Minimal Percentage of Cobalt
+- Minimal Percentage of Copper
+- Minimal Percentage of Iron
+- Minimal Percentage of Lead
+- Maximum Percentage of Chromium
+- Maximum Percentage of Cobalt
+- Maximum Percentage of Copper
+- Maximum Percentage of Iron
+- Maximum Percentage of Lead
+- Minimal Percentage of Magnesium
+- Minimal Percentage of Manganese
+- Minimal Percentage of Molybdenum
+- Minimal Percentage of Nickel
+- Minimal Percentage of Niobium
+- Maximum Percentage of Magnesium
+- Maximum Percentage of Manganese
+- Maximum Percentage of Molybdenum
+- Maximum Percentage of Nickel
+- Maximum Percentage of Niobium
+- Minimal Percentage of Nitrogen
+- Minimum Percentage of Phosphorus
+- Minimum Percentage of Selenium
+- Minimum Percentage of Silicon
+- Minimum Percentage of Sulfur
+- Maximum Percentage of Nitrogen
+- Maximum Percentage of Phosphorus
+- Maximum Percentage of Selenium
+- Maximum Percentage of Silicon
+- Maximum Percentage of Sulfur
+- Minimum Percentage of Tellurium
+- Minimum Percentage of Tin
+- Minimum Percentage of Titanium
+- Minimum Percentage of Tungsten
+- Minimum Percentage of Vanadium
+- Maximum Percentage of Tellurium
+- Maximum Percentage of Tin
+- Maximum Percentage of Titanium
+- Maximum Percentage of Tungsten
+- Maximum Percentage of Vanadium
+- Other Chemical
+- Minimum Percentage of Zinc
+- Minimum Percentage of Zirconium
+- Minimum Percentage of Other Chemical
+- Maximum Percentage of Zinc
+- Maximum Percentage of Zirconium
+- Maximum Percentage of Other Chemical
+- Chemical Composition Comments
+- Minimum Thickness
+- Minimum Inside Diameter
+- Minimum Outside Diameter
+- Minimum Length
+- Minimum Width
+- Minimum Height
+- Maximum Thickness
+- Maximum Inside Diameter
+- Maximum Outside Diameter
+- Maximum Length
+- Maximum Width
+- Maximum Height
+- Hardness Method
+- Minimum Tensile Strength
+- Minimum Yield Strength
+- Minimum Hardness
+- Maximum Tensile Strength
+- Maximum Yield Strength
+- Maximum Hardness
+- Toughness Test Method
+- Toughness Test Method Temperature
+- Dropweight Tear Testing Temperature
+- Impact Charpy Testing Temperature
+- Toughness Test Method Joules
+- Dropweight Tear Testing Joules
+- Impact Charpy Testing Joules
+- Toughness Test Method Shears
+- Dropweight Tear Testing Shears
+- Impact Charpy Testing Shears
+- Elongation Percentage Minimum
+- Reduction in Area Percentage Minimum
+- Hole Expansion Percentage Minimum
+- Bendability mm Minimum
+- Elongation Percentage Maximum
+- Reduction in Area Percentage Maximum
+- Hole Expansion Percentage Maximum
+- Bendability mm Maximum
+- Epstein Test Minimum
+- Greer Lab Method Minimum
+- Stacked Wide Sheet Minimum
+- Profilometer Minimum
+- Epstein Test Maximum
+- Greer Lab Method Maximum
+- Stacked Wide Sheet Maximum
+- Profilometer Maximum
+- Coating Method
+- Coating Product Name and Abbreviation
+- Composition
+- Coating Weight Minimum
+- Coating Thickness Minimum
+- Coating Weight Maximum
+- Coating Thickness Maximum
+- Additional Methods Used
+- Additional Methods Used 2
+- Additional Methods Used 3
+- Product Processing Comments
+- Product Commerical Name Comments
+- Association Code
+- Application Suitability
+- National Security Details
+- Domestic Manufacturer
+- Domestic Manufacturer Comments
+- Exempted Country
+- Exempted Country Comments
+- Substitute Manufacturer
+- Substitute Manufacturer Comments
+- Attempted Qualifications
+- Attempted Qualifications Comments
+- Purchase Attempts
+- Purchase Attempts Comments
+- Contracts
+- Contracts Comments
+- No US Manufacturer
+- No US Manufacturer Comments
+- Substitute Steel
+- Substitute Steel Comments
+- CBP Distinguish Comments
+- Submission Certification Authorizing Official Company Name
+- Submission Certification Authorizing Official Name
+- Submission Certification Authorizing Official Title
+- Submission Certification Authorizing Official Phone Number
+- Submission Certification Authorizing Official Email
+- Submission Certification POC Name
+- Submission Certification POC Title
+- Submission Certification POC Email
+- Submission Certification POC Phone Number
+- Proprietary Comments
+- Attachment
+- BIS Decision Memo

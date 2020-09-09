@@ -1,32 +1,31 @@
-# dictionary for title for Product Classification
-ProductClassification[0].Value  : 'Slab'
-ProductClassification[1].Value  : 'Blooms'
-ProductClassification[2].Value  : 'Billets'
-ProductClassification[3].Value  : 'Ingots'
-ProductClassification[4].Value  : 'Flat'
-ProductClassification[5].Value  : 'Long'
-ProductClassification[6].Value  : 'Beams'
-ProductClassification[7].Value  : 'Semi-Finished'
-ProductClassification[8].Value  : 'Pipe'
-ProductClassification[9].Value  : 'Tube'
-ProductClassification[10].Value : 'Stainless'
-ProductClassification[11].Value : 'Wire'
-ProductClassification[12].Value : 'Hot Rolled'
-ProductClassification[13].Value : 'Cold Rolled'
-ProductClassification[14].Value : 'Annealed'
-ProductClassification[15].Value : 'Plated'
-ProductClassification[16].Value : 'Electro-Plated'
-ProductClassification[17].Value : 'Galvanized'
-ProductClassification[18].Value : 'Electro-Galvanized'
-ProductClassification[19].Value : 'Zinc Plated'
-ProductClassification[20].Value : 'Aluminum Plated'
-ProductClassification[21].Value : 'Lead Plated'
-ProductClassification[22].Value : 'Tin Plated'
-ProductClassification[23].Value : 'Painted'
-ProductClassification[24].Value : 'Varnished'
-ProductClassification[25].Value : 'Plasticized'
-ProductClassification[26].Value : 'Pickled'
-ProductClassification[27].Value : 'Fittings'
-ProductClassification[28].Value : 'Product Classification Other'
-ProductClassification[29].Value : 'Product Classification Other 2'
-ProductClassification[30].Value : 'Product Classification Other 3'
+ProductClassification[0].Value: Slab
+ProductClassification[1].Value: Blooms
+ProductClassification[2].Value: Billets
+ProductClassification[3].Value: Ingots
+ProductClassification[4].Value: Flat
+ProductClassification[5].Value: Long
+ProductClassification[6].Value: Beams
+ProductClassification[7].Value: Semi-Finished
+ProductClassification[8].Value: Pipe
+ProductClassification[9].Value: Tube
+ProductClassification[10].Value: Stainless
+ProductClassification[11].Value: Wire
+ProductClassification[12].Value: Hot Rolled
+ProductClassification[13].Value: Cold Rolled
+ProductClassification[14].Value: Annealed
+ProductClassification[15].Value: Plated
+ProductClassification[16].Value: Electro-Plated
+ProductClassification[17].Value: Galvanized
+ProductClassification[18].Value: Electro-Galvanized
+ProductClassification[19].Value: Zinc Plated
+ProductClassification[20].Value: Aluminum Plated
+ProductClassification[21].Value: Lead Plated
+ProductClassification[22].Value: Tin Plated
+ProductClassification[23].Value: Painted
+ProductClassification[24].Value: Varnished
+ProductClassification[25].Value: Plasticized
+ProductClassification[26].Value: Pickled
+ProductClassification[27].Value: Fittings
+ProductClassification[28].Value: Product Classification Other
+ProductClassification[29].Value: Product Classification Other 2
+ProductClassification[30].Value: Product Classification Other 3
