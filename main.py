@@ -1,27 +1,38 @@
 import mine232 as mn
+import pandas as pd
+import datetime
+from os import path
 
-# individual request processing
-# my_request = mn.ExclusionRequest(25663) #25635)
-# print(f"ID: {my_request.id}")
-# print(f"url: {my_request.url}")
-# print(f"\nhtml: \n{my_request.html[0:200]}")
-# print(f"\nsoup: \n{str(my_request.soup)[0:200]}")
-# print(f"\npretty: \n{str(my_request.pretty())[0:200]}")
-# print(f"\ntags: \n")
-# print(f"\ndata: \n{my_request.data}")
-# print(f"\nvalues: \n{my_request.values()}")
-# print(f"\ncaptions: \n{my_request.captions()}")
+# input parameters
+gfrom = 10000
+gto   = 15000
+inc   = 100
 
-# update yaml
-# mn.UpdateProdClass()
-# mn.UpdateHeader()
+# variable initiation
+fromto = str(gfrom)+'-'+str(gto)
+res_file = r'result\extract232_'+fromto+'.csv'
+lfrom = gfrom
+lto = min(lfrom+inc, gto)
+hbool = True #~path.exists(res_file) # write header on first to_csv
+startt = datetime.datetime.now() #Performance management, start of run time
 
-# process lists of exclusion requests
-# my_erl = mn.ERList([25663, 25635, 9999999, 25635])
-my_erl = mn.ERList(from_id=25000, to_id=25010)
-# print(f"\nIDs: \n{my_erl.er_ids}")
-print(f"\nerrors: \n{my_erl.errors}")
-print(f"\nextracted: \n{my_erl.extracted}")
-print(f"\nfrom-to: \n{my_erl.fromto}")
-print(f"\nDataFrame: \n{my_erl.df.shape}")
-my_erl.df.to_csv(f'result\extract_232_{my_erl.fromto}.csv', index = False) 
+while lfrom < lto:
+    # extracting inc number of exclusion requests
+    # if df get to big, program slows
+    my_erl = mn.ERList(from_id=lfrom, to_id=lto)
+    # append those at the end of the target file
+    my_erl.df.to_csv(res_file, index = False, mode='a', header=hbool)
+    # update variable for next loop
+    lfrom = lfrom + inc
+    lto = min(lto + inc, gto)
+    if hbool:
+        # we only write the header on the first to_csv
+        hbool = False
+    # progress bar
+    endt = datetime.datetime.now() # current time
+    prog_per = round( 100 * ( lfrom - gfrom) / ( gto - gfrom ),2)
+    if prog_per > 100:
+        # we are done, and are going out of the loop
+        prog_per = 100
+    print('\r', end='') # clear progress bar
+    print(str(prog_per) + r'% extracted in', endt-startt, end='')
