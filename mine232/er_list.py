@@ -3,6 +3,7 @@ import pandas as pd
 import re
 import yaml
 from .exclusion_request import ExclusionRequest
+import time # for sleep
 
 # to load
 with open(r'mine232\header.yaml') as file:
@@ -30,7 +31,11 @@ class ERList:
         self.extracted = []
         for _id in self.er_ids:
             # extract info for the given _id to store them
-            _er = ExclusionRequest(_id)
+            try:
+                _er = ExclusionRequest(_id)
+                time.sleep(self.wait)
+            except ConnectionError:
+                _er.error = True
             if not(_er.error):
                 # no error we can store the data
                 self.df = self.df.append(_er.data, ignore_index=True)
@@ -43,13 +48,15 @@ class ERList:
         self.errors = list(set(self.errors))
     
     def _get_fromto(self):
-        """smallest-largest of the id, to name the file"""
+        """smallest-largest of the id, to name the file
+        :return: smallest-largest or empty"""
         if len(self.extracted) > 0:
-            self.fromto = str(self.extracted[0])+'-'+str(self.extracted[-1])
+            _ft = str(self.extracted[0])+'-'+str(self.extracted[-1])
         else:
-            self.fromto ='empty'
+            _ft ='empty'
+        return _ft
 
-    def __init__(self, ids=None, from_id=0, to_id=0):
+    def __init__(self, ids=None, from_id=0, to_id=0, wait=0):
         if ids == None:
             # default list of IDs is empty
             ids = []
@@ -57,6 +64,7 @@ class ERList:
         self.ids = ids
         self.from_id = from_id
         self.to_id = to_id
+        self.wait = wait
 
         if self.to_id != 0 and self.ids == []:
             # ids take precedent over the from-to range
@@ -69,4 +77,3 @@ class ERList:
             self.er_ids = []
 
         self._extract_data()
-        self._get_fromto()

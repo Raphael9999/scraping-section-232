@@ -34,7 +34,9 @@ def _filter_tags(one_tag):
         _b_k = None == (re.search( r'^BIS232Request.JSONData.(ProductClassification|ChemicalComposition|ProductDimensions|ProductStrength|ProductProcessing.ProcessesPercentage|ProductProcessing.Processes|ToughnessJoules|ToughnessShear|ToughnessTemperature).*Key$', 
                                    one_tag['name'], flags=0))
         # the following keys are excluded by the above regex but are required
-        if one_tag['name'] in ['BIS232Request.JSONData.ChemicalComposition[27].Key', 'BIS232Request.JSONData.ProductStrength[2].Key', 'BIS232Request.JSONData.ToughnessTemperature[2].Key']:
+        if one_tag['name'] in ['BIS232Request.JSONData.ChemicalComposition[27].Key', 
+                               'BIS232Request.JSONData.ProductStrength[2].Key', 
+                               'BIS232Request.JSONData.ToughnessTemperature[2].Key']:
             _b_k = True # flip _b_k to keep those exceptions
 
     # type hidden should be removed
@@ -48,9 +50,8 @@ def _filter_tags(one_tag):
     # p tags are used for Submission date and Public Status
     _b_p = False
     if one_tag.name == 'p':
-        if ( one_tag.text[:17] == 'Submission Date: ' ) or ( one_tag.text[:15] == 'Public Status: ' ):
-            #exemple:Submission Date: 12/13/2019
-            _b_p = True # to keep this tag
+        # exemple: Submission Date: 12/13/2019, True to keep this tag
+        _b_p = ( one_tag.text[:17] == 'Submission Date: ' ) or ( one_tag.text[:15] == 'Public Status: ' )
     
     # Attachments
     # to avoid error need to check is the id attribute exist for that tag
@@ -92,8 +93,9 @@ class ExclusionRequest:
 
     def _get_request(self):
         """Request website and store response for the Exclusion Request"""
+        # try:
         # r2w is the request sent to the website
-        r2w = requests.get(self.url)
+        r2w = requests.get(self.url) #, timeout=5)
         # html answer of the request to the website
         self.html = r2w.text 
         # Soup for the exclusion request
@@ -101,6 +103,8 @@ class ExclusionRequest:
         # website returned error, 
         # could raise ValueError('Website: An error occurred while processing your request')
         ttl = self.soup.title.string
+        # except ConnectionError:
+        #     ttl = 'Error'
         self.error = ( ttl == 'Error' ) or ( ttl != ('Exclusion Request ' + str(self.id)) )
 
     def pretty(self):
@@ -140,6 +144,6 @@ class ExclusionRequest:
         
         self._get_url()
         self._get_request()
-        self._get_tags()
-        self._get_data()
-    
+        if not(self.error):
+            self._get_tags()
+            self._get_data()

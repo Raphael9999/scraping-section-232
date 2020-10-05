@@ -11,10 +11,7 @@ def test_notfound():
     """ID is a numerical"""
     my_er = ExclusionRequest(9999999)
     assert my_er.id == 9999999
-    for it in my_er.tags:
-        # there should only be one element in the tags list
-        my_tag = ERTag(it)
-        assert my_tag.value == 'Error' 
+    assert my_er.error
 
 def test_tag_value():
     """ID is a numerical"""
