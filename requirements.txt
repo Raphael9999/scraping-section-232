@@ -1,0 +1,11 @@
+# Needed packages/versions
+regex
+numpy
+pandas
+datetime
+requests
+beautifulsoup4
+notebook
+pylint
+pep8
+pyyaml
