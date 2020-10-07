@@ -93,18 +93,37 @@ class ExclusionRequest:
 
     def _get_request(self):
         """Request website and store response for the Exclusion Request"""
-        # try:
-        # r2w is the request sent to the website
-        r2w = requests.get(self.url) #, timeout=5)
-        # html answer of the request to the website
-        self.html = r2w.text 
-        # Soup for the exclusion request
-        self.soup = BeautifulSoup(self.html, features="html.parser")
-        # website returned error, 
-        # could raise ValueError('Website: An error occurred while processing your request')
-        ttl = self.soup.title.string
+        # alternate connection from https://2.python-requests.org/en/master/user/advanced/#session-objects
+        # some issue with SSL after a certain number of request. 
+        # Try alternate method and context manager to close connection
+        
+        # r = requests.get(self.url) #, timeout=5) 
+        # self.html = r.text # html answer of the request to the website
+
+        # with requests.Session() as s:
+            # r = s.get(self.url)
+            # self.html = r.text # html answer of the request to the website
+
+        # with requests.get(self.url, stream=False) as r:
+        #     self.html = r.text # html answer of the request to the website
+
+        # try: 
+        #     # Soup for the exclusion request
+        #     self.soup = BeautifulSoup(self.html, features="html.parser")
+        #     ttl = self.soup.title.string
         # except ConnectionError:
         #     ttl = 'Error'
+
+        try:
+            r = requests.get(self.url)
+            self.html = r.text # html answer of the request to the website
+            # Soup for the exclusion request
+            self.soup = BeautifulSoup(self.html, features="html.parser")
+            ttl = self.soup.title.string
+        except requests.exceptions.RequestException as e:  
+            # we actualy want to silence the exception # raise SystemExit(e) 
+            ttl = 'Error'
+
         self.error = ( ttl == 'Error' ) or ( ttl != ('Exclusion Request ' + str(self.id)) )
 
     def pretty(self):

@@ -47,7 +47,7 @@ class ERList:
         # remove duplicate and sort the list of errors
         self.errors = list(set(self.errors))
     
-    def _get_fromto(self):
+    def get_fromto(self):
         """smallest-largest of the id, to name the file
         :return: smallest-largest or empty"""
         if len(self.extracted) > 0:

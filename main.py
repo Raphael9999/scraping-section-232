@@ -1,12 +1,13 @@
 import mine232 as mn
 import pandas as pd
-import datetime
+import datetime # duration calculation
 from os import path
 import time # for the sleep at the end of the loop
+import gc # garbage collection, freeing memory
 
 # input parameters
-gfrom = 15321
-gto   = 17000
+gfrom = 16681
+gto   = gfrom+2000
 inc   = 100
 
 # variable initiation
@@ -22,7 +23,7 @@ while lfrom < lto:
     # if df get to big, program slows
     try:
         # try to handle error on ssl/timeout
-        my_erl = mn.ERList(from_id=lfrom, to_id=lto, wait=2)
+        my_erl = mn.ERList(from_id=lfrom, to_id=lto, wait=1)
         # append those at the end of the target file
         my_erl.df.to_csv(res_file, index = False, mode='a', header=hbool)
         # update variable for next loop
@@ -39,8 +40,10 @@ while lfrom < lto:
             prog_per = 100
         print('\r', end='') # clear progress bar
         print(' ' + str(lfrom-gfrom) + ' (' + str(prog_per) + r'%) exemption requests extracted in', endt-startt, end='')
-        time.sleep(10)
+        time.sleep(my_erl.wait)
     except ConnectionError:
         # just try again that loop
         print()
         print(f'Fail extraction {lfrom}-{lto}')
+    my_erl = None
+    gc.collect()

@@ -12,7 +12,7 @@ mine232\, requirements.txt, setup.py is a package containing the class used in t
 
 result\ directory where the extracted results are placed
 
-tests\ directory for the automated testing, using pytest, need to run main one time prior running pytest
+tests\ directory for the automated testing, using pytest
 
 env\ virtual environment
 
