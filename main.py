@@ -6,8 +6,8 @@ import time # for the sleep at the end of the loop
 import gc # garbage collection, freeing memory
 
 # input parameters
-gfrom = 16681
-gto   = gfrom+2000
+gfrom = 18681
+gto   = 20001 # gfrom+2000
 inc   = 100
 
 # variable initiation
@@ -23,7 +23,7 @@ while lfrom < lto:
     # if df get to big, program slows
     try:
         # try to handle error on ssl/timeout
-        my_erl = mn.ERList(from_id=lfrom, to_id=lto, wait=1)
+        my_erl = mn.ERList(from_id=lfrom, to_id=lto, wait=0.5)
         # append those at the end of the target file
         my_erl.df.to_csv(res_file, index = False, mode='a', header=hbool)
         # update variable for next loop
