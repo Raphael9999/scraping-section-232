@@ -7,13 +7,13 @@
 * extract_list, similar to main, will extract a given list of exclusion requests instead of a sequence  
 * Section232.ipynb was used for exploration purpose and built understanding of the BeautifulSoup and information extracted
 * combine, will aggregate extracted csv together and provide a list of missing exclusion request if any
+* .\mine232\, requirements.txt, setup.py is a package containing the class used in the main
+* .\mine232\upd_prod_class, update the yaml file containing the caption for the product classification
+* .\mine232\upd_header, update the yaml file containing the static caption for the exclusion request
 
 **Folder Structure**
 * .\documents\ documents related to the exploration
 * .\env\ virtual environment
-* .\mine232\, requirements.txt, setup.py is a package containing the class used in the main
-* .\mine232\upd_prod_class, update the yaml file containing the caption for the product classification
-* .\mine232\upd_header, update the yaml file containing the static caption for the exclusion request
 * .\result\ where the extracted files are placed
 * .\tests\ directory for the automated testing with pytest
 
