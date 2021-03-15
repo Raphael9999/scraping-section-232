@@ -23,8 +23,14 @@
 __main__: 
 * Update gfrom request ID you start the scrapping from, 
 * gto request ID you end the scrapping at, 
-* inc size of the batch of exclusion request extracted, too small/large will slow the process
-* run main.py, result will be saved in .\result\
+* inc size of the batch of exclusion request extracted, too small/large will slow the process,
+* run main.py, 
+* results will be saved in .\result\
+
+__extract_list__
+* Update glist with the list of specific request ID you would like to extract,
+* run extract_list.py, 
+* results will be saved in .\result\
 
 ## License
 MIT License
