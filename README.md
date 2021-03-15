@@ -20,6 +20,22 @@
 ## Installation
 
 ## Example
+__main__: 
+* Update gfrom request ID you start the scrapping from, 
+* gto request ID you end the scrapping at, 
+* inc size of the batch of exclusion request extracted, too small/large will slow the process,
+* run main.py, 
+* results will be saved in .\result\
+
+__extract_list__:
+* Update glist with the list of specific request ID you would like to extract,
+* run extract_list.py, 
+* results will be saved in .\result\
+
+__combine__:
+* Update if needed the all_filenames list to contains the list of all the files you want to combine in a single csv
+* run combine.py
+* the combined file will be saved in .\result\
 
 ## License
 MIT License
